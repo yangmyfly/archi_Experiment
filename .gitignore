@@ -14,6 +14,10 @@ hs_err_pid*
 bin/
 .idea/*.xml
 
+*.xml
+.name
+*.iml
+
 .DS_Store
 .AppleDouble
 .LSOverride

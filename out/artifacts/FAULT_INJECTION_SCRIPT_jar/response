@@ -1,0 +1,2 @@
+failure
+com.amazonaws.services.autoscaling.model.AlreadyExistsException: Launch Configuration by this name already exists - A launch configuration already exists with the name zhiwei (Service: AmazonAutoScaling; Status Code: 400; Error Code: AlreadyExists; Request ID: 480cfd53-f7b5-11e5-b287-27520314c43b)

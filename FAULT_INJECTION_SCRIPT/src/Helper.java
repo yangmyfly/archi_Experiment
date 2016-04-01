@@ -12,7 +12,7 @@ public class Helper {
             if (!file.exists()) {
                 file.createNewFile();
             }
-            FileWriter fileWriter = new FileWriter(file, true); //append
+            FileWriter fileWriter = new FileWriter(file, false); //not append
             BufferedWriter w = new BufferedWriter(fileWriter);
             w.write("success");
             w.close();
@@ -27,7 +27,7 @@ public class Helper {
             if (!file.exists()) {
                 file.createNewFile();
             }
-            FileWriter fileWriter = new FileWriter(file, true); //append
+            FileWriter fileWriter = new FileWriter(file, false); //not append
             BufferedWriter w = new BufferedWriter(fileWriter);
             w.write("success" + "\n" + message);
             w.close();
@@ -42,7 +42,7 @@ public class Helper {
             if (!file.exists()) {
                 file.createNewFile();
             }
-            FileWriter fileWriter = new FileWriter(file, true); //append
+            FileWriter fileWriter = new FileWriter(file, false); //not append
             BufferedWriter w = new BufferedWriter(fileWriter);
             w.write("failure" + "\n" + message);
             w.close();
@@ -57,7 +57,7 @@ public class Helper {
             if (!file.exists()) {
                 file.createNewFile();
             }
-            FileWriter fileWriter = new FileWriter(file, true); //append
+            FileWriter fileWriter = new FileWriter(file, false); //not append
             BufferedWriter w = new BufferedWriter(fileWriter);
             w.write("failure" + "\n" + message);
             w.close();

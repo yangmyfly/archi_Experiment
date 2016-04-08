@@ -30,6 +30,7 @@ public class LaunchConfiguration {
 
             AWSCredentials credentials = null;
             credentials = new ProfileCredentialsProvider(CredentialLocation, "default").getCredentials();
+            Helper.writeResponse("successfully connect with aws");
 
             /**
              * the injection fault steps
@@ -48,6 +49,7 @@ public class LaunchConfiguration {
                     .withKeyName(keyPair).withSecurityGroups(securityGroup)
                     .withUserData(userData);
             autoScaling.createLaunchConfiguration(launchConfigRequest);
+            Helper.writeResponse("fault has been injected, waiting for monitoring");
 
             /**
              * the monitor steps
@@ -70,17 +72,22 @@ public class LaunchConfiguration {
             }
 
             if (isSuccess == true) {
-                Helper.writeSuccessResponse();
+                Helper.writeResponse("successfully create launchconfiguration with name" + args[1] + "and the result has been monitored");
+                Helper.SuccessComplete();
             } else {
-                Helper.writeFailResponse("monitor doesn't found the launchConfiguration with indicated name");
+                Helper.writeResponse("monitor doesn't found the launchConfiguration with indicated name");
+                Helper.FailComplete();
             }
 
         } catch (AmazonServiceException ase) {
-            Helper.writeFailResponse(ase);
+            Helper.writeResponse(ase);
+            Helper.FailComplete();
         } catch (AmazonClientException ace) {
-            Helper.writeFailResponse(ace);
+            Helper.writeResponse(ace);
+            Helper.FailComplete();
         } catch (Exception e){
-            Helper.writeFailResponse(e);
+            Helper.writeResponse(e);
+            Helper.FailComplete();
         }
     }
 }

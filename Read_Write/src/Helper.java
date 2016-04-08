@@ -1,8 +1,4 @@
-import com.amazonaws.AmazonServiceException;
-
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
+import java.io.*;
 
 /**
  * Created by joe on 16/3/31.
@@ -19,6 +15,27 @@ public class Helper {
             w.write(message + "\n");
             w.close();
         } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    static void readerResponse() {
+        try{
+            File file = new File("response");
+            if (!file.exists()) {
+                System.out.println(" file not existed yet");
+            } else {
+                String  thisLine = null;
+                // open input stream test.txt for reading purpose.
+                FileReader fileReader = new FileReader(file);
+                BufferedReader br = new BufferedReader(fileReader);
+                while ((thisLine = br.readLine()) != null) {
+                    System.out.println(thisLine);
+                }
+                br.close();
+                System.out.println("---------------------------------------------------");
+            }
+        }catch(Exception e){
             e.printStackTrace();
         }
     }
